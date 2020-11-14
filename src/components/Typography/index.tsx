@@ -1,11 +1,15 @@
 import styled from 'styled-components/native';
 
-const BaseTextRegular = styled.Text`
-  font-family: 'SF Pro Display Regular';
+const FontSF = styled.Text`
+  font-family: 'SF Pro Display';
 `;
 
-const BaseTextBold = styled.Text`
-  font-family: 'SF Pro Display Bold';
+const BaseTextRegular = styled(FontSF)`
+  font-weight: 400;
+`;
+
+const BaseTextBold = styled(FontSF)`
+  font-weight: 700;
 `;
 
 export const H1Header = styled(BaseTextBold)`
@@ -26,6 +30,7 @@ export const BodyBold = styled(BaseTextBold)`
 
 export const Body = styled(BaseTextRegular)`
   font-size: 16px;
+  color: ${({ theme }) => theme.color_text.grey};
 `;
 
 export const FieldBold = styled(BaseTextBold)`

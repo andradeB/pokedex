@@ -1,4 +1,6 @@
 import { PokemonType } from 'models';
+import { Height } from '../models/Height';
+import { Weight } from '../models/Weight';
 
 export const TypeColors = new Map<PokemonType, string>([
   ['bug', '#8CB230'],
@@ -21,7 +23,7 @@ export const TypeColors = new Map<PokemonType, string>([
   ['water', '#4A90DA'],
 ]);
 
-export const BackgroundColors = new Map<PokemonType, string>([
+export const TypeBackgroundColors = new Map<PokemonType, string>([
   ['bug', '#8BD674'],
   ['dark', '#6F6E78'],
   ['dragon', '#7383B9'],
@@ -40,4 +42,16 @@ export const BackgroundColors = new Map<PokemonType, string>([
   ['rock', '#D4C294'],
   ['steel', '#4C91B2'],
   ['water', '#4C91B2'],
+]);
+
+export const HeightColors = new Map<Height, string>([
+  [Height.MEDIUM, '#AEBFD7'],
+  [Height.SHORT, '#FFC5E6'],
+  [Height.TALL, '#FFC5E6'],
+]);
+
+export const WeightColors = new Map<Weight, string>([
+  [Weight.HEAVY, '#57B2DC'],
+  [Weight.LIGHT, '#99CD7C'],
+  [Weight.NORMAL, '#57B2DC'],
 ]);
