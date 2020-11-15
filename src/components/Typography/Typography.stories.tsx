@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react-native';
 import { Body, BodyBold, Field, FieldBold, H1Header, H2Header, H3Header } from './';
 import { View } from 'react-native';
 
-const Row = ({ children }) => (
+const Row = ({ children }: { children: React.ReactNode }) => (
   <View
     style={{
       marginVertical: 8,
@@ -13,7 +13,7 @@ const Row = ({ children }) => (
   </View>
 );
 
-storiesOf('Typography', module).add('Header1', () => (
+storiesOf('Typography', module).add('Components', () => (
   <View
     style={{
       marginHorizontal: 16,

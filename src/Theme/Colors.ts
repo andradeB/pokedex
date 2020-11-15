@@ -2,7 +2,7 @@ import { PokemonType } from 'models';
 import { Height } from '../models/Height';
 import { Weight } from '../models/Weight';
 
-export const TypeColors = new Map<PokemonType, string>([
+export const TypeColors = new Map<PokemonType | string, string>([
   ['bug', '#8CB230'],
   ['dark', '#8CB230'],
   ['dragon', '#0F6AC0'],
@@ -55,3 +55,10 @@ export const WeightColors = new Map<Weight, string>([
   [Weight.LIGHT, '#99CD7C'],
   [Weight.NORMAL, '#57B2DC'],
 ]);
+
+export const defaultTextColors = {
+  white: '#FFFFFF',
+  black: '#17171B',
+  grey: '#747476',
+  grey2: '#17171B',
+};

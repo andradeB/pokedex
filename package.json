@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "storybook": "start-storybook -p 7007 --no-dll",
+    "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook --no-dll"
   },
   "dependencies": {
@@ -18,13 +18,17 @@
     "@types/styled-components": "^5.1.4",
     "react": "16.13.1",
     "react-native": "0.63.3",
+    "react-native-async-storage-dev-menu-item": "^0.0.4",
+    "react-native-dev-menu": "^4.0.2",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-reanimated": "^1.13.1",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^2.14.0",
+    "react-native-vector-icons": "^7.1.0",
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "styled-theming": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

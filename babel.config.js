@@ -13,6 +13,7 @@ module.exports = {
           screens: './src/screens',
           store: './src/store',
           models: './src/models',
+          theme: './src/theme',
         },
       },
     ],

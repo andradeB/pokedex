@@ -1,7 +1,16 @@
 import styled from 'styled-components/native';
 
-const FontSF = styled.Text`
+interface FontProps {
+  color?: string;
+}
+
+const FontSF = styled.Text<FontProps>`
   font-family: 'SF Pro Display';
+  ${({ color }) =>
+    color &&
+    `
+    color: ${color}
+  `}
 `;
 
 const BaseTextRegular = styled(FontSF)`
@@ -30,7 +39,7 @@ export const BodyBold = styled(BaseTextBold)`
 
 export const Body = styled(BaseTextRegular)`
   font-size: 16px;
-  color: ${({ theme }) => theme.color_text.grey};
+  color: ${({ theme, color }) => color || theme.color_text.grey};
 `;
 
 export const FieldBold = styled(BaseTextBold)`
