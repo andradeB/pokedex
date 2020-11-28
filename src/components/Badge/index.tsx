@@ -8,7 +8,7 @@ import { ThemeContext } from 'styled-components';
 import { TypeColors } from 'theme';
 
 type BadgeProps = {
-  name: PokemonType;
+  name: PokemonType | string;
 };
 
 export const Badge: React.FC<BadgeProps> = ({ name }) => {

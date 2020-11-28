@@ -1,10 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { Badge } from './';
+import { PokemonItemList } from './';
 import { FlatList, ListRenderItem, View } from 'react-native';
 import { H2Header } from 'components';
 import { TypeColors } from 'theme';
-import { PokemonType } from 'models';
 
 const Row = ({ children }: { children: React.ReactNode }) => (
   <View
@@ -26,7 +25,7 @@ const Column = ({ children }: { children: React.ReactNode }) => (
   </View>
 );
 
-storiesOf('Badge', module).add('Components', () => {
+storiesOf('PokemonItemList', module).add('Components', () => {
   const data = Array.from(TypeColors.keys());
   const renderItem: ListRenderItem<string> = ({ item }) => (
     <View
@@ -47,11 +46,11 @@ storiesOf('Badge', module).add('Components', () => {
       }}
     >
       <H2Header>Badges</H2Header>
-      <FlatList
-        numColumns={4}
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => `badge-${item}-${index}`}
+      <PokemonItemList
+        id={1}
+        name={'Bulbasaur'}
+        types={['grass', 'poison']}
+        image={'https://pokeres.bastionbot.org/images/pokemon/1.png'}
       />
     </View>
   );

@@ -4,7 +4,7 @@ import { Weight } from '../models/Weight';
 
 export const TypeColors = new Map<PokemonType | string, string>([
   ['bug', '#8CB230'],
-  ['dark', '#8CB230'],
+  ['dark', '#58575F'],
   ['dragon', '#0F6AC0'],
   ['electric', '#0F6AC0'],
   ['fairy', '#ED6EC7'],
@@ -23,7 +23,7 @@ export const TypeColors = new Map<PokemonType | string, string>([
   ['water', '#4A90DA'],
 ]);
 
-export const TypeBackgroundColors = new Map<PokemonType, string>([
+export const TypeBackgroundColors = new Map<PokemonType | string, string>([
   ['bug', '#8BD674'],
   ['dark', '#6F6E78'],
   ['dragon', '#7383B9'],
@@ -44,13 +44,13 @@ export const TypeBackgroundColors = new Map<PokemonType, string>([
   ['water', '#4C91B2'],
 ]);
 
-export const HeightColors = new Map<Height, string>([
+export const HeightColors = new Map<Height | string, string>([
   [Height.MEDIUM, '#AEBFD7'],
   [Height.SHORT, '#FFC5E6'],
   [Height.TALL, '#FFC5E6'],
 ]);
 
-export const WeightColors = new Map<Weight, string>([
+export const WeightColors = new Map<Weight | string, string>([
   [Weight.HEAVY, '#57B2DC'],
   [Weight.LIGHT, '#99CD7C'],
   [Weight.NORMAL, '#57B2DC'],

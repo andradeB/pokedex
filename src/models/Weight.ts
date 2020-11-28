@@ -1,5 +1,5 @@
 export enum Weight {
   LIGHT = 'light',
-  NORMAL = 'light',
-  HEAVY = 'light',
+  NORMAL = 'normal',
+  HEAVY = 'heavy',
 }

@@ -1,12 +1,12 @@
-import styled from 'styled-components/native';
+import React, { useState } from 'react';
+import { InnerInput, InputContainer } from './style';
+import { TextInputProps } from 'react-native';
 
-export const Input = styled.TextInput<{ active?: boolean }>`
-  height: 60px;
-  font-family: 'SF Pro Display';
-  padding: 24px;
-  border-radius: ${({ theme }) => theme.border_radius}px;
-  background: ${({ theme, active }) =>
-    active
-      ? theme.default_background.defaultBgPressedInput
-      : theme.default_background.defaultBgInput};
-`;
+export const Input: React.FC<TextInputProps> = (props) => {
+  const [active, setActive] = useState(false);
+  return (
+    <InputContainer active={active}>
+      <InnerInput onBlur={() => setActive(true)} onFocus={() => setActive(false)} />
+    </InputContainer>
+  );
+};
