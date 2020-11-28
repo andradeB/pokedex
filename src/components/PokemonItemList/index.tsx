@@ -12,7 +12,7 @@ import {
 import { Badge } from '../Badge';
 import { ThemeContext } from 'styled-components';
 import { View } from 'react-native';
-import { TypeBackgroundColors, TypeColors } from 'theme';
+import { TypeBackgroundColors } from 'theme';
 
 type PokemonItemListProps = {
   id: number;

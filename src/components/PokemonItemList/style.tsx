@@ -5,7 +5,7 @@ export const PokemonItemContainer = styled(RectButton)<{ background?: string }>`
   height: 115px;
   flex-direction: row;
   padding: 20px;
-  border-radius: ${({ theme }) => theme.border_radius};
+  border-radius: ${({ theme }) => theme.border_radius}px;
   background: ${({ theme, background }) =>
     background || theme.default_background.defaultBgPressedInput};
 `;

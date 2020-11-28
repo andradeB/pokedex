@@ -7,6 +7,10 @@ import { ThemeBase } from './src/theme';
 
 declare const global: { HermesInternal: null | {} };
 
+if (__DEV__) {
+  import('./config/ReactotronConfig').then(() => console.log('Reactotron Configured'));
+}
+
 const App = () => {
   return (
     <SafeAreaProvider>
@@ -16,7 +20,9 @@ const App = () => {
 };
 
 export default function () {
-  if (!__DEV__) {
+  const theme = new ThemeBase();
+
+  if (__DEV__) {
     return (
       <ThemeProvider theme={theme}>
         <App />
@@ -26,7 +32,6 @@ export default function () {
 
   const [showStorybook, setStorybookVisibility] = useState<boolean>(true);
   const Content = useMemo(() => (showStorybook ? Storybook : App), [showStorybook]);
-  const theme = new ThemeBase();
 
   if (__DEV__) {
     const DevMenu = require('react-native-dev-menu');
