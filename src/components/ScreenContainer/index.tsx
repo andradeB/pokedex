@@ -7,7 +7,9 @@ export const ScreenContainer: React.FC = ({ children }) => {
   return (
     <View
       style={{
-        marginTop: insets.top,
+        backgroundColor: 'white',
+        flex: 1,
+        paddingTop: insets.top,
       }}
     >
       {children}

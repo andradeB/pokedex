@@ -28,9 +28,9 @@ export const TypeBackgroundColors = new Map<PokemonType | string, string>([
   ['dark', '#6F6E78'],
   ['dragon', '#7383B9'],
   ['electric', '#F2CB55'],
-  ['fairy', '#F2CB55'],
+  ['fairy', '#EBA8C3'],
   ['fighting', '#EB4971'],
-  ['fire', '#EB4971'],
+  ['fire', '#FFA756'],
   ['flying', '#83A2E3'],
   ['ghost', '#8571BE'],
   ['grass', '#8BBE8A'],
@@ -41,7 +41,7 @@ export const TypeBackgroundColors = new Map<PokemonType | string, string>([
   ['psychic', '#FF6568'],
   ['rock', '#D4C294'],
   ['steel', '#4C91B2'],
-  ['water', '#4C91B2'],
+  ['water', '#58ABF6'],
 ]);
 
 export const HeightColors = new Map<Height | string, string>([

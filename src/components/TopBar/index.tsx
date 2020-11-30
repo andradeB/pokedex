@@ -1,9 +1,14 @@
 import React from 'react';
 import { TopBarContainer, TopBarButton } from './style';
-import { H3Header, Icon } from 'components';
+import { Icon } from '../Icon';
 
-export const TopBar: React.FC = () => {
-  const data = [
+export type TopBarActionTypes = 'generation' | 'sort' | 'filter';
+export type TopBarProps = {
+  onAction: (type: TopBarActionTypes) => void;
+};
+
+export const TopBar: React.FC<TopBarProps> = ({ onAction }) => {
+  const data: Array<{ icon: TopBarActionTypes }> = [
     {
       icon: 'generation',
     },
@@ -16,8 +21,10 @@ export const TopBar: React.FC = () => {
   ];
   return (
     <TopBarContainer mx={4} my={2}>
-      {data.map((x) => (
+      {data.map((x, index) => (
         <TopBarButton
+          onPress={() => onAction(x.icon)}
+          key={`topbar-${index}-${x}`}
           hitSlop={{
             top: 10,
             right: 10,

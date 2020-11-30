@@ -13,17 +13,6 @@ const Row = ({ children }: { children: React.ReactNode }) => (
   </View>
 );
 
-const Collumn = ({ children }: { children: React.ReactNode }) => (
-  <View
-    style={{
-      flex: 1,
-      marginHorizontal: 8,
-    }}
-  >
-    {children}
-  </View>
-);
-
 storiesOf('FormField', module).add('Components', () => (
   <View
     style={{
@@ -43,7 +32,7 @@ storiesOf('FormField', module).add('Components', () => (
       <H3Header>Active</H3Header>
     </Row>
     <Row>
-      <Input active value={'Input Active'} />
+      <Input value={'Input Active'} />
     </Row>
   </View>
 ));

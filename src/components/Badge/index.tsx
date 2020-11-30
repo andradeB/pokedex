@@ -3,7 +3,7 @@ import { PokemonType } from 'models';
 import { BadgeContainer } from './style';
 import { Icon } from '../Icon';
 import { View } from 'react-native';
-import { Body } from 'components';
+import { Body } from '../Typography';
 import { ThemeContext } from 'styled-components';
 import { TypeColors } from 'theme';
 

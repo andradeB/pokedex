@@ -4,8 +4,19 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Storybook from './storybook';
 import { ThemeProvider } from 'styled-components/native';
 import { ThemeBase } from './src/theme';
+import { NativeModules, Platform } from 'react-native';
+import { setLanguage } from 'I18N';
+import { SheetsProvider } from 'components';
 
 declare const global: { HermesInternal: null | {} };
+
+const getLanguageByDevice = () => {
+  return Platform.OS === 'ios'
+    ? NativeModules.SettingsManager.settings.AppleLocale // Adquire o idioma no device iOS
+    : NativeModules.I18nManager.localeIdentifier; // Adquire o idioma no device Android
+};
+
+setLanguage(getLanguageByDevice());
 
 if (__DEV__) {
   import('./config/ReactotronConfig').then(() => console.log('Reactotron Configured'));
@@ -25,7 +36,9 @@ export default function () {
   if (__DEV__) {
     return (
       <ThemeProvider theme={theme}>
-        <App />
+        <SheetsProvider>
+          <App />
+        </SheetsProvider>
       </ThemeProvider>
     );
   }

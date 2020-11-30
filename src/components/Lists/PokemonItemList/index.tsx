@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
 import { PokemonType } from 'models';
-import { FieldBold, H3Header } from '../Typography';
+import { FieldBold, H3Header } from '../../Typography';
 import {
   PokemonItemContainer,
   PokemonItemContentContainer,
@@ -9,21 +9,23 @@ import {
   PokemonItemName,
   PokemonItemTags,
 } from './style';
-import { Badge } from '../Badge';
+import { Badge } from '../../Badge';
 import { ThemeContext } from 'styled-components';
 import { View } from 'react-native';
 import { TypeBackgroundColors } from 'theme';
+import { Pokemon } from 'models';
 
 type PokemonItemListProps = {
-  id: number;
-  types: Array<PokemonType | string>;
-  name: string;
-  image: string;
+  item: Pokemon;
 };
 
-export const PokemonItemList: React.FC<PokemonItemListProps> = ({ id, types, name, image }) => {
+export const PokemonItemList: React.FC<PokemonItemListProps> = ({ item }) => {
   const theme = useContext(ThemeContext);
-  const formatedId = useMemo<string>(() => `#${id.toString().padStart(3, 0)}`, [id]);
+  const { id, name, types } = item;
+
+  const formatedId = useMemo<string>(() => `#${id.toString().padStart(3, '0')}`, [id]);
+  const formatedName = useMemo<string>(() => name.charAt(0).toUpperCase() + name.slice(1), [name]);
+
   return (
     <PokemonItemContainer background={TypeBackgroundColors.get(types[0])}>
       <PokemonItemContentContainer>
@@ -31,11 +33,12 @@ export const PokemonItemList: React.FC<PokemonItemListProps> = ({ id, types, nam
           <FieldBold color={`${theme.color_text.black}96`}>{formatedId}</FieldBold>
         </PokemonItemId>
         <PokemonItemName>
-          <H3Header color={theme.color_text.white}>{name}</H3Header>
+          <H3Header color={theme.color_text.white}>{formatedName}</H3Header>
         </PokemonItemName>
         <PokemonItemTags>
           {types.map((type) => (
             <View
+              key={`pokemon-item-type-${type}`}
               style={{
                 marginRight: 5,
               }}
@@ -45,8 +48,9 @@ export const PokemonItemList: React.FC<PokemonItemListProps> = ({ id, types, nam
           ))}
         </PokemonItemTags>
       </PokemonItemContentContainer>
-
-      <PokemonItemImage source={{ uri: image }} />
+      <PokemonItemImage
+        source={{ uri: `https://pokeres.bastionbot.org/images/pokemon/${id}.png` }}
+      />
     </PokemonItemContainer>
   );
 };

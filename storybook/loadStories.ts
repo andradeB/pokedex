@@ -5,5 +5,5 @@ export const loadStories = () => {
   require('../src/components/Icon/Icon.stories');
   require('../src/components/Badge/Badge.stories');
   require('../src/components/TypeButton/TypeButton.stories');
-  require('../src/components/PokemonItemList/PokemonItemList.stories');
+  require('../src/components/Lists/PokemonItemList/PokemonItemList.stories');
 };

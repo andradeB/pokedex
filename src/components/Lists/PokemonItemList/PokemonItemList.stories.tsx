@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { PokemonItemList } from './';
+import { PokemonItemList } from './index';
 import { View } from 'react-native';
 import { H2Header } from 'components';
 
