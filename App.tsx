@@ -32,18 +32,7 @@ const App = () => {
 
 export default function () {
   const theme = new ThemeBase();
-
-  if (__DEV__) {
-    return (
-      <ThemeProvider theme={theme}>
-        <SheetsProvider>
-          <App />
-        </SheetsProvider>
-      </ThemeProvider>
-    );
-  }
-
-  const [showStorybook, setStorybookVisibility] = useState<boolean>(true);
+  const [showStorybook, setStorybookVisibility] = useState<boolean>(false);
   const Content = useMemo(() => (showStorybook ? Storybook : App), [showStorybook]);
 
   if (__DEV__) {
@@ -56,7 +45,9 @@ export default function () {
 
   return (
     <ThemeProvider theme={theme}>
-      <Content />
+      <SheetsProvider>
+        <Content />
+      </SheetsProvider>
     </ThemeProvider>
   );
 }

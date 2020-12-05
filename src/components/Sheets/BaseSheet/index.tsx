@@ -1,11 +1,13 @@
-import React, { createRef, Ref, useEffect, useImperativeHandle, useState } from 'react';
-import { BaseSheetBackground, BaseSheetContent } from './style';
-import { Animated, Dimensions, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { BaseSheetBackground, BaseSheetContent, Draggable } from './style';
+import { Animated, Dimensions } from 'react-native';
+import { PanGestureHandlerEventExtra, PanGestureHandler } from 'react-native-gesture-handler';
 
 const { width, height } = Dimensions.get('screen');
 
 const AnimatedBackground = Animated.createAnimatedComponent(BaseSheetBackground);
 const AnimatedBaseSheetContent = Animated.createAnimatedComponent(BaseSheetContent);
+const AnimatedBaseSheetDraggable = Animated.createAnimatedComponent(Draggable);
 
 type BaseSheetProps = {
   onHide: () => void;
@@ -16,6 +18,13 @@ type BaseSheetProps = {
 export const BaseSheet: React.FC<BaseSheetProps> = ({ onHide, visible, sheetHeight, children }) => {
   const [animatedOpacity] = useState(new Animated.Value(0));
   const [left] = useState(new Animated.Value(width));
+
+  const onGestureEvent = ({ nativeEvent }: { nativeEvent: PanGestureHandlerEventExtra }) => {
+    console.log(nativeEvent);
+    if (nativeEvent.translationY > 0) {
+      onHide();
+    }
+  };
 
   const show = () => {
     Animated.timing(left, {
@@ -74,6 +83,10 @@ export const BaseSheet: React.FC<BaseSheetProps> = ({ onHide, visible, sheetHeig
           ],
         }}
       >
+        <PanGestureHandler onGestureEvent={onGestureEvent}>
+          <AnimatedBaseSheetDraggable />
+        </PanGestureHandler>
+
         {children}
       </AnimatedBaseSheetContent>
     </>

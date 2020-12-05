@@ -22,3 +22,13 @@ export const BaseSheetContent = styled.View`
   z-index: 2;
   border-radius: ${({ theme }) => theme.border_radius * 3}px;
 `;
+
+export const Draggable = styled.View`
+  width: 80px;
+  height: 8px;
+  border-radius: 4px;
+  background: white;
+  position: absolute;
+  top: -20px;
+  align-self: center;
+`;

@@ -38,7 +38,7 @@ export const HomeScreen: React.FC = () => {
   const modalContext = useContext(SheetsContext);
 
   const topBarActions = new Map<TopBarActionTypes, () => void>([
-    ['filter', () => modalContext?.setFilterVisibility(true)],
+    ['filter', () => modalContext?.filterVisible(true)],
     // ['generation', () => setGenerationVisibility(true)],
     // ['sort', () => setSortVisibility(true)],
   ]);
